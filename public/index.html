@@ -8,73 +8,59 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <link href="./stylesheets/main.css" rel="stylesheet">
   </head>
-  <body>
+  <body class="grey darken-2">
     <div class="jumbo">
       <div class="navbar-fixed">
         <nav class="transparent">
           <div class="nav-wrapper">
-            <a href="#!" class="brand-logo">Logo</a>
+            <a href="#!" class="brand-logo custom-logo">TREATS</a>
             <ul class="right hide-on-med-and-down">
               <li><a href="./addNew.html">Add new recipe</a></li>
               <li><a href="./ingredients.html">Ingredients</a></li>
             </ul>
           </div>
         </nav>
-        <div class="">
-          <h3 class="branding">Some H3 about our awesome site</h3>
+        <div>
+          <a href="#main-recipe"><h3 class="branding animated">Discover your next favorite recipe</h3></a>
         </div>
       </div>
     </div>
-    <div class="recipe-container grey darken-2">
+    <div class="container" id="main-recipe">
       <div class="row">
         <div class="col l6 s12 m6">
-          <div class="card medium">
-            <div class="card-image">
-              <img src="https://unsplash.it/50/50">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
-          </div>
-        </div>
-        <div class="col l6 s12 m6">
-          <div class="card medium">
-            <div class="card-image">
-              <img src="https://unsplash.it/100/50">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
-          </div>
-        </div>
-        <div class="col l6 s12 m6">
-          <div class="card medium">
-            <div class="card-image">
-              <img class="responsive-img" src="https://unsplash.it/50/50">
-              <span class="card-title">Card Title</span>
-            </div>
-            <div class="card-content">
-              <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-            </div>
-            <div class="card-action">
-              <a href="#">This is a link</a>
-            </div>
+          <div class="card recipe medium">
           </div>
         </div>
       </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.1.1.js"
-    integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
-    crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-    <script src="./scripts/main.js"></script>
+  <footer class="page-footer pink lighten-4">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="grey-text text-darken-2">Galvanize recipes</h5>
+            <p class="grey-text text-darken-2">This site is built with HTML5, CSS3, Materialize, jQuery, Javascript, Express, Knex, PostgreSQL</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="grey-text text-darken-2">Links</h5>
+            <ul>
+              <li><a class="grey-text text-darken-2" href="#!">Link 1</a></li>
+              <li><a class="grey-text text-darken-2" href="#!">Link 2</a></li>
+              <li><a class="grey-text text-darken-2" href="#!">Link 3</a></li>
+              <li><a class="grey-text text-darken-2" href="#!">Link 4</a></li>
+            </ul>
+           </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © Galvanize recipes. Daria Calwell and Steve O'Dell
+        </div>
+      </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  <script src="./scripts/main.js"></script>
   </body>
 </html>

@@ -1,6 +1,7 @@
 body {
   font-family: 'Raleway', sans-serif;
   color: hsla(274, 0%, 11%, 1);
+  letter-spacing: 5px;
 }
 .jumbo {
   background-image: url('./food.jpg');
@@ -14,8 +15,45 @@ body {
   left: 350px;
   color: white;
   padding: 20px;
-  background: grey;
+  background: hsla(0, 0%, 37%, 0.8);
+
 }
 .card {
   margin: 20px;
+}
+.animated {
+  animation: fadeInDown 2s;
+}
+
+@keyframes fadeInDown {
+ 0% {
+    opacity: 0;
+    transform: translateY(-40px);
+ }
+ 100% {
+    opacity: 1;
+    transform: translateY(0);
+ }
+}
+
+.recipe-overflow {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+span.stars, span.stars span {
+  display: block;
+  margin-top: 5px;
+  background: url('./nana.jpg') 0 -16px repeat-x;
+  width: 125px;
+  height: 30px;
+}
+
+span.stars span {
+    background-position: 0 0;
+}
+.brand-logo.custom-logo {
+  color: #69f0ae;
+  text-shadow: -1px 0 #00c853, 0 1px #00c853, 1px 0 #00c853, 0 -1px #00c853;
 }
