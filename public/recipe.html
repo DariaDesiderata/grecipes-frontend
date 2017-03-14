@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Steve and Daria awesome recipe site</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="./stylesheets/main.css" rel="stylesheet">
+  </head>
+  <body class="grey darken-2">
+      <div class="navbar-fixed">
+        <nav class="transparent">
+          <div class="nav-wrapper">
+            <a href="#!" class="brand-logo custom-logo">TREATS</a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="./addNew.html">Add new recipe</a></li>
+              <li><a href="./ingredients.html">Ingredients</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    <div class="container product">
+      <div class="row">
+        <div class ="col s12 product-page-header">
+        </div>
+      </div>
+      <div class="row">
+        <div class ="col s12 product-img">
+        </div>
+      </div>
+      <div class="row">
+        <div class ="col l6 m6 s12 offset-l3 product-details">
+        </div>
+      </div>
+      <div class="row">
+        <div class ="col s12 product-description">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col l6 m6 s12">
+          <ul class="ingredient-list">
+          </ul>
+        </div>
+        <div class ="col l6 m6 s12">
+          <ol class="steps">
+          </ol>
+        </div>
+      </div>
+      <div class="row">
+        <div class="action-btn horizontal">
+            <a data-target="modal2" class="edit-blog btn-floating teal accent-4"><i class="material-icons">mode_edit</i></a>
+            <a class="comment-blog btn-floating blue lighten-2"><i class="material-icons">comment</i></a>
+            <a class="delete btn-floating deep-orange lighten-2"><i class="material-icons">delete</i></a>
+         </div>
+      </div>
+      <div class="row">
+          <form class="review form col l6 m8 s12">
+            <div class="row">
+              <div class="input-field col l12 m10 s12">
+                <input placeholder="Author name" id="username" type="text">
+                <label class="active" for="author">Author</label>
+              </div>
+              <div class="input-field col l12 m10 s12">
+                <textarea placeholder="Your review" id="body" type="text" rows="50"></textarea>
+                <span class="stars"><i class="material-icons">stars</i><i class="material-icons">stars</i><i class="material-icons">stars</i><i class="material-icons">stars</i></span>
+              </div>
+            </div>
+            <button class="btn waves-effect waves-light teal accent-4 col s6 add-new-review" type="submit" name="action">Add new review</button>
+          </form>
+      </div>
+      <div class="reviews-area">
+        <h5>Reviews</h5>
+      </div>
+    </div>
+  <footer class="page-footer pink lighten-4">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="grey-text text-darken-2">Galvanize recipes</h5>
+            <p class="grey-text text-darken-2">This site is built with HTML5, CSS3, Materialize, jQuery, Javascript, Express, Knex, PostgreSQL</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="grey-text text-darken-2">Links</h5>
+            <ul>
+              <li><a class="grey-text text-darken-2" href="#!">Link 1</a></li>
+              <li><a class="grey-text text-darken-2" href="#!">Link 2</a></li>
+              <li><a class="grey-text text-darken-2" href="#!">Link 3</a></li>
+              <li><a class="grey-text text-darken-2" href="#!">Link 4</a></li>
+            </ul>
+           </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © Galvanize recipes. Daria Calwell and Steve O'Dell
+        </div>
+      </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  <script src="./scripts/recipe.js"></script>
+  </body>
+</html>

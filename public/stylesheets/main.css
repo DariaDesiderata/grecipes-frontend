@@ -42,7 +42,7 @@ body {
   text-overflow: ellipsis;
 }
 
-span.stars, span.stars span {
+/*span.stars, span.stars span {
   display: block;
   margin-top: 5px;
   background: url('./nana.jpg') 0 -16px repeat-x;
@@ -52,8 +52,11 @@ span.stars, span.stars span {
 
 span.stars span {
     background-position: 0 0;
-}
+}*/
 .brand-logo.custom-logo {
   color: #69f0ae;
   text-shadow: -1px 0 #00c853, 0 1px #00c853, 1px 0 #00c853, 0 -1px #00c853;
+}
+.action-btn {
+  float: right;
 }
