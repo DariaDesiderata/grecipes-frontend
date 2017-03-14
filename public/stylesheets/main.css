@@ -1,0 +1,21 @@
+body {
+  font-family: 'Raleway', sans-serif;
+  color: hsla(274, 0%, 11%, 1);
+}
+.jumbo {
+  background-image: url('./food.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 800px;
+}
+.branding {
+  position: absolute;
+  top: 450px;
+  left: 350px;
+  color: white;
+  padding: 20px;
+  background: grey;
+}
+.card {
+  margin: 20px;
+}
