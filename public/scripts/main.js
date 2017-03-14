@@ -10,20 +10,30 @@ const $recipeCard = $('.recipe')
 function addRecipes(recipes) {
 
   recipes.forEach(recipe => {
-    $recipeCard.append(
-      `<div class="card-image">
-        <img class ="recipe-img" src="${recipe.image}">
-        <span class="card-title">${recipe.title}</span>
-      </div>
-      <div class="card-content">
-        <p class="recipe-description">${recipe.description}</p>
-        <span class="stars">${recipe.review_stars}</span>
-      </div>
-      <div class="card-action">
-        <a href="./recipe/${recipe.id}">See recipe</a>
-      </div>
-      `
-    )
+
+    $.get("https://g43recipes.herokuapp.com/review/${recipe.id}")
+    .then((reviews) => {
+      var sum = 0
+      var avgRating = sum/reviews.length
+      for (var i = 0; i < reviews.length; i++) {
+        var rating = reviews[i].stars
+        sum +=rating
+      }
+        $recipeCard.append(
+          `<div class="card-image">
+            <img class ="recipe-img" src="${recipe.image}">
+            <span class="card-title">${recipe.title}</span>
+          </div>
+          <div class="card-content">
+            <p class="recipe-description">${recipe.description}</p>
+            <span class="stars">${avgRating}</span>
+          </div>
+          <div class="card-action">
+            <a href="./recipe.html?id=${recipe.id}">See recipe</a>
+          </div>
+          `
+        )
+    )}
     //function to convert numerical value into bananas
     $.fn.stars = function() {
       return $(this).each(function() {
@@ -45,8 +55,8 @@ function addRecipes(recipes) {
   })
 }
 
-// $.get("/recipes")
-// .then(addRecipes)
-// .catch(err => {
-//   console.log(err)
-// })
+$.get("https://g43recipes.herokuapp.com/recipes")
+.then(addRecipes)
+.catch(err => {
+  console.log(err)
+})
