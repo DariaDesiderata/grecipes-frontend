@@ -24,10 +24,10 @@
       <div class="animated container new-recipe">
         <div class="row">
           <h2 class="add-new-header">Add your new recipe</h2>
-          <form class="offset-l1 col s12">
+          <form class="recipe-form offset-l1 col s12">
             <div class="row">
               <div class="input-field col l10 m10 s12">
-                <input placeholder="New recipe title" id="recipe_title" type="text">
+                <input placeholder="New recipe title" id="recipe-title" type="text">
                 <label for="recipe_title">Recipe title</label>
               </div>
             </div>
@@ -50,18 +50,21 @@
               </div>
             </div>
             <div class="row">
-              <div class="input-field recipe-ingredient col l10 m10 s12">
+              <div class="recipe-ingredient row col l10 m10 s12">
               </div>
               <div>
                 <a class="col l4 m4 s12 waves-effect waves-light btn add-ingredient">Add ingredient</a>
               </div>
             </div>
             <div class="row">
-              <div class="input-field recipe-step col l10 m10 s12">
+              <div class="recipe-step col l10 m10 s12">
               </div>
               <div>
               <a class="col l4 m4 s12 waves-effect waves-light btn add-step">Add step</a>
               </div>
+            </div>
+            <div class="row">
+              <button class="btn waves-effect waves-light col l4 m4 s12 send-recipe" type="submit" name="action">Add my recipe<i class="material-icons right">send</i></button>
             </div>
         </form>
       </div>
