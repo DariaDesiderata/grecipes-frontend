@@ -44,10 +44,28 @@ body {
   text-overflow: ellipsis;
 }
 
-.brand-logo.custom-logo {
+.navbar-fixed {
   color: #69f0ae;
   text-shadow: -1px 0 #00c853, 0 1px #00c853, 1px 0 #00c853, 0 -1px #00c853;
 }
 .action-btn {
   float: right;
 }
+.new-recipe-img {
+  background-image: url("./cookies.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+}
+.new-recipe {
+  background: #757575;
+  opacity: 0.8;
+  padding: 30px;
+}
+.add-new-header {
+  color: #eeff41;
+  text-align: center;
+}
+.input-field label {
+     color: #eeff41;
+ }

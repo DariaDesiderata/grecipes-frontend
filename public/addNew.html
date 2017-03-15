@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Steve and Daria awesome recipe site</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="./stylesheets/main.css" rel="stylesheet">
+  </head>
+  <body class="grey darken-2">
+    <div class="new-recipe-img">
+      <div class="navbar-fixed">
+        <nav class="transparent">
+          <div class="nav-wrapper">
+            <a href="./index.html" class="brand-logo custom-logo">TREATS</a>
+            <ul class="right hide-on-med-and-down">
+              <li><a href="./addNew.html">Add new recipe</a></li>
+              <li><a href="./ingredients.html">Ingredients</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="container new-recipe">
+        <div class="row">
+          <h2 class="add-new-header">Add your new recipe</h2>
+          <form class="offset-l1 col s12">
+            <div class="row">
+              <div class="input-field col l10 m10 s12">
+                <input placeholder="New recipe title" id="recipe_title" type="text">
+                <label for="recipe_title">Recipe title</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col l10 m10 s12">
+                <input placeholder="Username" id="recipe-username" type="text">
+                <label for="recipe-username">Username</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col l10 m10 s12">
+                <input placeholder="Description" id="recipe-description" type="text">
+                <label for="recipe-description">Description</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col l10 m10 s12">
+                <input placeholder="Add your recipe image link here" id="recipe-url" type="text">
+                <label for="recipe-url">Image URL</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col l10 m10 s12">
+                <input placeholder="Add ingredient" id="recipe-ingredient" type="text">
+                <label for="recipe-ingredient">Ingredient</label>
+                <a class="waves-effect waves-light btn add-ingredient">Add ingredient</a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col l10 m10 s12">
+                <input placeholder="Add step" id="recipe-step" type="text">
+                <label for="recipe-step">Step</label>
+                <a class="waves-effect waves-light btn add-step">Add step</a>
+              </div>
+            </div>
+        </form>
+      </div>
+    </div>
+  <footer class="page-footer green lighten-3">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="grey-text text-darken-2">Galvanize recipes</h5>
+            <p class="grey-text text-darken-2">This site is built with HTML5, CSS3, Materialize, jQuery, Javascript, Express, Knex, PostgreSQL</p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <h5 class="grey-text text-darken-2">Links</h5>
+            <ul>
+              <li><a class="grey-text text-darken-2" href="#!">Link 1</a></li>
+              <li><a class="grey-text text-darken-2" href="#!">Link 2</a></li>
+              <li><a class="grey-text text-darken-2" href="#!">Link 3</a></li>
+              <li><a class="grey-text text-darken-2" href="#!">Link 4</a></li>
+            </ul>
+           </div>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <div class="container">
+        © Galvanize recipes. Daria Calwell and Steve O'Dell
+        </div>
+      </div>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.1.1.js"
+  integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  <script src="./scripts/main.js"></script>
+  </body>
+</html>
