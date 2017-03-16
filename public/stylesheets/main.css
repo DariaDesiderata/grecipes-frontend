@@ -1,6 +1,7 @@
 body {
   font-family: 'Raleway', sans-serif;
-  color: hsla(274, 0%, 11%, 1);
+  background: url('./grey_wash_wall.png');
+  background-repeat: repeat;
   letter-spacing: 5px;
 }
 .jumbo {
@@ -38,12 +39,6 @@ body {
  }
 }
 
-.recipe-overflow {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .navbar-fixed {
   color: #69f0ae;
   text-shadow: -1px 0 #00c853, 0 1px #00c853, 1px 0 #00c853, 0 -1px #00c853;
@@ -57,16 +52,23 @@ body {
   background-repeat: no-repeat;
   height: 100%;
 }
+
 .new-recipe {
-  background: #757575;
-  opacity: 0.9;
+  background: url('./grey_wash_wall.png');
+  opacity: 0.8;
   padding: 30px;
 }
-.add-new-header {
+h2 {
   color: #eeff41;
   text-align: center;
 }
 .input-field label {
-     color: #eeff41;
-     font-weight: bold;
+  color: #eeff41;
+  font-weight: bold;
  }
+.edit-recipe-img {
+  background-image: url("./editPage.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+}

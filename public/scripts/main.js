@@ -1,11 +1,6 @@
 const $recipeCard = $('.recipe')
 
-// var recipeArr = [
-//   {id: 1,  image: "./stylesheets/img1.jpg", title:"Paella", avgRating: 4.5, },
-//   {id: 2,  image: "./stylesheets/img2.jpg", title:"Paella", avgRating: 4.5, },
-//   {id: 3,  image: "./stylesheets/img1.jpg", title:"Paella", avgRating: 4.5, },
-//   {id: 4,  image: "./stylesheets/img2.jpg", title:"Paella", avgRating: 4.5, }
-// ]
+
 
 function addRecipes(recipes) {
 
@@ -28,7 +23,6 @@ function addRecipes(recipes) {
         )
     })
 }
-// addRecipes(recipeArr)
 
 $.get("https://g43recipes.herokuapp.com/recipe")
 .then(addRecipes)

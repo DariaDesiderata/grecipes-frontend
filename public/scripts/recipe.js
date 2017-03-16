@@ -1,6 +1,14 @@
 const urlArr = window.location.href.split('=')
 const recipeId = urlArr[1]
 
+// var recipeArr = [
+//   {id: 1,  image: "./stylesheets/img1.jpg", title:"Paella", avgRating: 4.5, },
+//   {id: 2,  image: "./stylesheets/img2.jpg", title:"Paella", avgRating: 4.5, },
+//   {id: 3,  image: "./stylesheets/img1.jpg", title:"Paella", avgRating: 4.5, },
+//   {id: 4,  image: "./stylesheets/img2.jpg", title:"Paella", avgRating: 4.5, }
+// ]
+
+
 function renderRecipe(recipe) {
 
     $('.product-page-header').append(`<h4>${recipe.title}</h4>`)
@@ -57,28 +65,28 @@ function appendReviews(reviews) {
 }
 
 
-$.get("https://g43recipes.herokuapp.com/recipe/"+recipeId)
-  .then(function(recipe) {
-    renderRecipe(recipe)
-  })
-  .then(function() {
-    $.get("https://g43recipes.herokuapp.com/step/"+recipeId)
-    .then(function(steps) {
-      appendSteps(steps)
-    })
-  })
-  .then(function() {
-    $.get("https://g43recipes.herokuapp.com/ingredient/"+recipeId)
-    .then(function(ingredients) {
-      appendIngredients(ingredients)
-    })
-  })
-  .then(function() {
-    $.get("https://g43recipes.herokuapp.com/review/"+recipeId)
-    .then(reviews => {
-      reviews.forEach(review => {
-        appendReview(review)
-    })
-  })
-  .then(deleteReview)
-})
+// $.get("https://g43recipes.herokuapp.com/recipe/"+recipeId)
+//   .then(function(recipe) {
+//     renderRecipe(recipe)
+//   })
+//   .then(function() {
+//     $.get("https://g43recipes.herokuapp.com/step/"+recipeId)
+//     .then(function(steps) {
+//       appendSteps(steps)
+//     })
+//   })
+//   .then(function() {
+//     $.get("https://g43recipes.herokuapp.com/ingredient/"+recipeId)
+//     .then(function(ingredients) {
+//       appendIngredients(ingredients)
+//     })
+//   })
+//   .then(function() {
+//     $.get("https://g43recipes.herokuapp.com/review/"+recipeId)
+//     .then(reviews => {
+//       reviews.forEach(review => {
+//         appendReview(review)
+//     })
+//   })
+//   .then(deleteReview)
+// })

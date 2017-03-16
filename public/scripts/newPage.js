@@ -8,15 +8,15 @@ $('.add-ingredient').click(() => {
   $('.recipe-ingredient').append(
     `<div class="input-field col l3">
     <label for="ingredient-qty" class="active">Quantity</label>
-    <input placeholder="1, 2, 3.." id="ingredient-qty-${ingredient}" type="text">
+    <input placeholder="1, 2, 3.." id="ingredient-qty-${ingredient}" type="text" value="">
     </div>
     <div class="input-field col l3">
     <label for="ingredient-uom" class="active">UOM</label>
-    <input placeholder="Cup, oz, each" id="ingredient-uom-${ingredient}" type="text">
+    <input placeholder="Cup, oz, each" id="ingredient-uom-${ingredient}" type="text" value="">
     </div>
     <div class="input-field col l6">
     <label for="recipe-ingredient" class="active">Ingredient</label>
-    <input placeholder="Sugar and spice and everything nice" id="recipe-ingredient-${ingredient}" type="text">
+    <input placeholder="Sugar and spice and everything nice" id="recipe-ingredient-${ingredient}" type="text" value="">
     </div>`
   )
 })
