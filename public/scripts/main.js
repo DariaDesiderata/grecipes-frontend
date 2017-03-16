@@ -2,13 +2,14 @@ const $recipeCard = $('.recipe')
 
 function addRecipes(recipes) {
   recipes.forEach(recipe => {
-    var rating = parseFloat(recipe.avg).toFixed(1) || "This recipe does not have a review yet"
+    var rating;
+    recipe.avg === null ? rating = "No reviews yet" : rating = parseFloat(recipe.avg).toFixed(1)
 
         $recipeCard.append(
           `<div class="col l6 s12 m6">
             <div class="card medium animated hoverable">
               <div class="card-image">
-                <img class ="recipe-img" src="${recipe.image}">
+                <img class="recipe-img" src="${recipe.image}">
               </div>
               <div class="card-content">
                 <span class="card-title">${recipe.title}</span>

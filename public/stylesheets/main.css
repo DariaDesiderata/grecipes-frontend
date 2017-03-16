@@ -13,7 +13,7 @@ body {
 .branding {
   position: absolute;
   top: 450px;
-  left: 350px;
+  left: 310px;
   color: white;
   padding: 20px;
   background: hsla(0, 0%, 37%, 0.8);
@@ -76,6 +76,13 @@ h2 {
   color: #eeff41;
   text-align: center;
 }
-.review {
+.review-form {
   display: none;
+}
+.review {
+  margin:20px;
+  padding: 20px;
+}
+.modal-content {
+  color: black;
 }

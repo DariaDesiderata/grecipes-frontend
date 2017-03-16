@@ -1,22 +1,19 @@
 const urlArr = window.location.href.split('=')
 const recipeId = urlArr[1]
-
-var recipe = {title: "Paella", image: "./stylesheets/food.jpg", rating: 4.5, description: "fhasaksldjasdasdal;dka;sdkals;kda"}
-var ingredients = [{quantity: 5, uom: "each", name: "shrimp"}, {quantity: 5, uom: "each", name: "shrimp"}, {quantity: 5, uom: "each", name: "shrimp"}, {quantity: 5, uom: "each", name: "shrimp"}]
-var steps = [{body: "fhskajsdasdk;laskd;"}, {body: "fhskajsdasdk;laskd;"}, {body: "fhskajsdasdk;laskd;"}, {body: "fhskajsdasdk;laskd;"}]
-var reviews = [{recipe_id: 2, id: 1, username: "Ryan", body: "fhasjsldkasdjalskjdasjdkasdas;"}, {recipe_id: 2, id: 1, username: "Ryan", body: "fhasjsldkasdjalskjdasjdkasdas;"},{recipe_id: 1, id: 1, username: "Jim", body: "fhasjsldkasdjalskjdasjdkasdas;"}]
+console.log("https://g43recipes.herokuapp.com/recipe/"+recipeId);
 
 $('.edit-recipe').attr('href', './editRecipe.html?id='+recipeId)
 $('.leave-review').click(() => {
-  $('.review').toggle()
+  $('.review-form').toggle()
 })
 
 function renderRecipe(recipe) {
-
+    var rating;
+    recipe.avg === null ? rating = "No reviews yet" : rating = parseFloat(recipe.avg).toFixed(1)
     $('.product-page-header').append(`<h4>${recipe.title}</h4>`)
     $('.product-img').append(`<img src="${recipe.image}" height="450px">`)
-    $('.product-details').append(`<p>Courtesy of: ${recipe.username}</p>
-      <span class="stars">Average rating: ${recipe.avg}</span>`)
+    $('.product-details').append(`<p>Courtesy of: ${recipe.user_id}</p>
+      <span class="stars">Average rating: ${rating}</span>`)
     $('.product-description').append(`<p>${recipe.description}</p>`)
 
 }
@@ -27,44 +24,47 @@ function appendIngredients(ingredients) {
   })
 }
 
-function appendSteps(steps) {
-  steps.forEach(step => {
-    $('.steps').append(`<li>${step.body}</li>`)
-  })
-}
+function appendSteps(step) {
 
-function appendReviews(review) {
-  console.log(recipeId);
+    $('.steps').append(`<li class="step">${step.step_body}</li>`)
+  }
 
+function appendReview(review) {
   if (Number(recipeId) === review.recipe_id) {
+
     $('.reviews-area').append(
-        `<article id="${review.id}" class="review z-depth-3 grid-element-wrap-col s6 m5 l10">
-           <h4 class='author'>${review.username}</h6>
-           <p class='body'>${review.body}</p>
-           <button data-target="modal1" data-id="${review.id}" class="edit-review deep-purple lighten-2 btn">Edit comment</button>
+        `<article id="${review.id}" class="review z-depth-3 grid-element-wrap-col s6 m5 l10 left-align">
+           <h5 class='body'>${review.body}</h5>
+           <p class='author'>Review by: ${review.user_id}</p>
+           <p class="rating">My rating: ${review.stars}</p>
+           <button data-target="modal1" data-id="${review.id}" class="edit-review btn teal accent-4">Edit review</button>
              <div id="modal${review.id}" class="modal">
                 <div class="modal-content">
                   <form>
                     <div class="row">
                       <div class="input-field">
-                        <input class="review-author" type="text" value="${review.username}">
+                        <input class="review-author" type="text" value="${review.user_id}">
+                        <label class="active" for="author"></label>
+                      </div>
+                      <div class="input-field">
+                        <input class="review-rating" type="number" min="0" value="${review.stars}">
                         <label class="active" for="author"></label>
                       </div>
                       <div class="input-field">
                         <textarea class="body" type="text">${review.body}</textarea>
                       </div>
                       <div>
-                        <a href="/blogPage.html?id=${review.recipe_id}" data-id="${review.id}" class="modal-action modal-close modal-save waves-effect btn-flat">Save</a>
-                        <a href="/blogPage.html?id=${review.recipe_id}" class="modal-action modal-close modal-cancel waves-effect btn-flat">Cancel</a>
+                        <a href="./recipe.html?id=${recipeId}" data-id="${review.id}" class="modal-action modal-close modal-save waves-effect btn-flat">Save</a>
+                        <a href="./recipe.html?id=${recipeId}" class="modal-action modal-close modal-cancel waves-effect btn-flat">Cancel</a>
                       </div>
                     </div>
                   </form>
                 </div>
               </div>
-           <a class="delete-comment waves-effect waves-light red lighten-2 btn">Delete comment</a>
+           <a class="delete-review waves-effect waves-light deep-orange lighten-2 btn" id="${review.id}">Delete review</a>
         </article>`)
-      $('.comment-form').hide()
-      $('.comment-form')[0].reset()
+      // $('.review').hide()
+      // $('.review')[0].reset()
     }
 }
 
@@ -83,40 +83,47 @@ function deleteRecipe() {
     $.ajax("https://g43recipes.herokuapp.com/recipe/"+recipeId, {
       method: "DELETE"
     })
-    .then(() => {window.location.href = "/index.html"})
+    .then(() => {window.location.reload()})
   })
 }
 
 function deleteReview() {
-
+  $('.delete-review').click(function(event) {
+    event.preventDefault()
+    var reviewId = $(this).attr('id')
+    $.ajax("https://g43recipes.herokuapp.com/review/"+reviewId, {
+      method: "DELETE"
+    })
+    .then(() => {window.location.reload()})
+  })
 }
-renderRecipe(recipe)
-appendSteps(steps)
-appendIngredients(ingredients)
-reviews.forEach(review => {appendReviews(review)})
-// $.get("https://g43recipes.herokuapp.com/recipe/"+recipeId)
-//   .then(function(recipe) {
-//     renderRecipe(recipe)
-//     deleteRecipe(recipe)
-//   })
-//   .then(function() {
-//     $.get("https://g43recipes.herokuapp.com/step/"+recipeId)
-//     .then(function(steps) {
-//       appendSteps(steps)
-//     })
-//   })
+
+$.get("https://g43recipes.herokuapp.com/recipe/"+recipeId)
+  .then(function(recipe) {
+    renderRecipe(recipe)
+    deleteRecipe(recipe)
+  })
+  .then(function() {
+    $.get("https://g43recipes.herokuapp.com/step/"+recipeId)
+    .then(steps => {
+      steps.forEach(step => {
+        // console.log(step);
+        appendSteps(step)
+      })
+    })
+  })
 //   .then(function() {
 //     $.get("https://g43recipes.herokuapp.com/ingredient/"+recipeId)
 //     .then(function(ingredients) {
 //       appendIngredients(ingredients)
 //     })
 //   })
-//   .then(function() {
-//     $.get("https://g43recipes.herokuapp.com/review/"+recipeId)
-//     .then(reviews => {
-//       reviews.forEach(review => {
-//         appendReview(review)
-//     })
-//   })
-//   .then(deleteReview)
-// })
+  .then(function() {
+    $.get("https://g43recipes.herokuapp.com/review/"+recipeId)
+    .then(reviews => {
+      reviews.forEach(review => {
+        appendReview(review)
+    })
+  })
+  .then(deleteReview)
+})
