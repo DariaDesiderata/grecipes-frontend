@@ -1,6 +1,5 @@
 const urlArr = window.location.href.split('=')
 const recipeId = urlArr[1]
-console.log("https://g43recipes.herokuapp.com/recipe/"+recipeId);
 
 $('.edit-recipe').attr('href', './editRecipe.html?id='+recipeId)
 $('.leave-review').click(() => {
@@ -43,15 +42,15 @@ function appendReview(review) {
                   <form>
                     <div class="row">
                       <div class="input-field">
-                        <input class="review-author" type="text" value="${review.user_id}">
+                        <input class="review-author" type="text" value="${review.user_id}" disabled>
                         <label class="active" for="author"></label>
                       </div>
                       <div class="input-field">
-                        <input class="review-rating" type="number" min="0" value="${review.stars}">
+                        <input class="review-rating" type="number" min="0" max="5" value="${review.stars}">
                         <label class="active" for="author"></label>
                       </div>
                       <div class="input-field">
-                        <textarea class="body" type="text">${review.body}</textarea>
+                        <textarea class="review-body" type="text">${review.body}</textarea>
                       </div>
                       <div>
                         <a href="./recipe.html?id=${recipeId}" data-id="${review.id}" class="modal-action modal-close modal-save waves-effect btn-flat">Save</a>
@@ -68,14 +67,34 @@ function appendReview(review) {
     }
 }
 
-//click event to activate modal
+//click event to activate edit review modal
 $(document).on('click', '.edit-review', function() {
    var id = $(this).data('id')
     $('.modal').modal({
       opacity: 0.7
     })
     $('#modal'+ id).modal('open')
+})
+//click event to edit review
+$(document).on('click', '.modal-save', function(event) {
+  event.preventDefault()
+  var editUrl = "https://g43recipes.herokuapp.com/review/"+$(this).data('id')
+  var editedReview = {}
+  console.log(editUrl);
+  editedReview.stars = $('.review-rating').val(),
+  editedReview.body = $('review-body').val(),
+  editedReview.recipe_id = recipeId,
+  editedReview.user_id = $('.review-author').val()
+
+  $.ajax(editUrl, {
+    method: "PUT",
+    contentTYpe: "application/json",
+    data: JSON.stringify(editedReview)
   })
+  .then(() => {
+    window.location.reload()
+  })
+})
 
 function deleteRecipe() {
   $('.delete-recipe').click((event) => {
@@ -107,17 +126,16 @@ $.get("https://g43recipes.herokuapp.com/recipe/"+recipeId)
     $.get("https://g43recipes.herokuapp.com/step/"+recipeId)
     .then(steps => {
       steps.forEach(step => {
-        // console.log(step);
         appendSteps(step)
       })
     })
   })
-//   .then(function() {
-//     $.get("https://g43recipes.herokuapp.com/ingredient/"+recipeId)
-//     .then(function(ingredients) {
-//       appendIngredients(ingredients)
-//     })
-//   })
+  .then(function() {
+    $.get("https://g43recipes.herokuapp.com/ingredient/"+recipeId)
+    .then(function(ingredients) {
+      appendIngredients(ingredients)
+    })
+  })
   .then(function() {
     $.get("https://g43recipes.herokuapp.com/review/"+recipeId)
     .then(reviews => {

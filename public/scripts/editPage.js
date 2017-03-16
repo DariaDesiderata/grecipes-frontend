@@ -1,17 +1,18 @@
 const urlArr = window.location.href.split('=')
 const recipeId = urlArr[1]
+console.log(recipeId);
 let step = 0
 let ingredient = 0
 let ingredientArr = []
 let stepArr = []
 
-function parseRecipe(item) {
+function parseRecipe(recipe) {
 
-  $('.edit-recipe-header').html('recipe.title')
-  $('.recipe-title').val()
-  $('.recipe-username').val()
-  $('.recipe-desciption').val()
-  $('.recipe-url').attr("src", )
+  $('.edit-recipe-header').html(recipe.title)
+  $('.recipe-title').val(recipe.title)
+  $('.recipe-username').val(recipe.user_id)
+  $('.recipe-desciption').val(recipe.description)
+  $('.recipe-url').attr("src", recipe.image)
 }
 
 function parseSteps(steps) {
@@ -24,7 +25,7 @@ function parseSteps(steps) {
       <label for="recipe-step" class="active">Step ${step}</label>${step.body}
       </div>`
     )
-  }
+  })
 }
 
 function parseIngredients(ingredients) {
@@ -60,6 +61,7 @@ $.get("https://g43recipes.herokuapp.com/recipe/"+recipeId)
     .then(steps => {
       parseSteps(steps)
     })
+  })
   .then(ingredients => {
     $.get("https://g43recipes.herokuapp.com/ingredient/"+recipeId)
     .then(ingredients => {
