@@ -72,3 +72,10 @@ h2 {
   background-repeat: no-repeat;
   height: 100%;
 }
+.product {
+  color: #eeff41;
+  text-align: center;
+}
+.review {
+  display: none;
+}

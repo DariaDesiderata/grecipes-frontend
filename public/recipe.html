@@ -12,7 +12,7 @@
       <div class="navbar-fixed">
         <nav class="transparent">
           <div class="nav-wrapper">
-            <a href="#!" class="brand-logo custom-logo">TREATS</a>
+            <a href="./index.html" class="brand-logo custom-logo">TREATS</a>
             <ul class="right hide-on-med-and-down">
               <li><a href="./addNew.html">Add new recipe</a></li>
               <li><a href="./ingredients.html">Ingredients</a></li>
@@ -26,11 +26,11 @@
         </div>
       </div>
       <div class="row">
-        <div class ="col s12 product-img">
+        <div class ="col s12 offset-l3-m1 product-img">
         </div>
       </div>
       <div class="row">
-        <div class ="col l6 m6 s12 offset-l3 product-details">
+        <div class ="col l6 m6 s6 offset-l3 product-details">
         </div>
       </div>
       <div class="row">
@@ -39,23 +39,26 @@
       </div>
       <div class="row">
         <div class="col l6 m6 s12">
+          <h4>Ingredients</h4>
           <ul class="ingredient-list">
           </ul>
         </div>
         <div class ="col l6 m6 s12">
+          <h4>Follow these steps</h4>
           <ol class="steps">
           </ol>
         </div>
       </div>
+      <div class="fixed-action-btn">
+          <a class="btn-floating btn-large red lighten-1"><i class="large material-icons">mode_edit</i></a>
+            <ul>
+              <li><a class="edit-recipe btn-floating teal accent-4"><i class="material-icons">mode_edit</i></a></li>
+              <li><a href="#scroll-to" class="leave-review btn-floating yellow lighten-1"><i class="material-icons">comment</i></a></li>
+              <li><a class="delete-recipe btn-floating deep-orange lighten-2"><i class="material-icons">delete</i></a></li>
+            </ul>
+        </div>
       <div class="row">
-        <div class="action-btn horizontal">
-            <a data-target="modal2" class="edit-blog btn-floating teal accent-4"><i class="material-icons">mode_edit</i></a>
-            <a class="comment-blog btn-floating blue lighten-2"><i class="material-icons">comment</i></a>
-            <a class="delete btn-floating deep-orange lighten-2"><i class="material-icons">delete</i></a>
-         </div>
-      </div>
-      <div class="row">
-          <form class="review form col l6 m8 s12">
+          <form class="review form col l6 m8 s12" id="scroll-to">
             <div class="row">
               <div class="input-field col l12 m10 s12">
                 <input placeholder="Author name" id="username" type="text">
@@ -101,6 +104,6 @@
     integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA="
     crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-    <script src="./scripts/main.js"></script>
+    <script src="./scripts/recipe.js"></script>
     </body>
   </html>

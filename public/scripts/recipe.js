@@ -1,43 +1,47 @@
 const urlArr = window.location.href.split('=')
 const recipeId = urlArr[1]
 
-// var recipeArr = [
-//   {id: 1,  image: "./stylesheets/img1.jpg", title:"Paella", avgRating: 4.5, },
-//   {id: 2,  image: "./stylesheets/img2.jpg", title:"Paella", avgRating: 4.5, },
-//   {id: 3,  image: "./stylesheets/img1.jpg", title:"Paella", avgRating: 4.5, },
-//   {id: 4,  image: "./stylesheets/img2.jpg", title:"Paella", avgRating: 4.5, }
-// ]
+var recipe = {title: "Paella", image: "./stylesheets/food.jpg", rating: 4.5, description: "fhasaksldjasdasdal;dka;sdkals;kda"}
+var ingredients = [{quantity: 5, uom: "each", name: "shrimp"}, {quantity: 5, uom: "each", name: "shrimp"}, {quantity: 5, uom: "each", name: "shrimp"}, {quantity: 5, uom: "each", name: "shrimp"}]
+var steps = [{body: "fhskajsdasdk;laskd;"}, {body: "fhskajsdasdk;laskd;"}, {body: "fhskajsdasdk;laskd;"}, {body: "fhskajsdasdk;laskd;"}]
+var reviews = [{recipe_id: 2, id: 1, username: "Ryan", body: "fhasjsldkasdjalskjdasjdkasdas;"}, {recipe_id: 2, id: 1, username: "Ryan", body: "fhasjsldkasdjalskjdasjdkasdas;"},{recipe_id: 1, id: 1, username: "Jim", body: "fhasjsldkasdjalskjdasjdkasdas;"}]
 
+$('.edit-recipe').attr('href', './editRecipe.html?id='+recipeId)
+$('.leave-review').click(() => {
+  $('.review').toggle()
+})
 
 function renderRecipe(recipe) {
 
     $('.product-page-header').append(`<h4>${recipe.title}</h4>`)
-    $('.product-img').append(`<img src="${recipe.image}">`)
-    $('.product-details').append(`<p>${recipe.title}/${recipe.username}</p>
-      <span class="stars">${recipe.rating}</span>`)
+    $('.product-img').append(`<img src="${recipe.image}" height="450px">`)
+    $('.product-details').append(`<p>Courtesy of: ${recipe.username}</p>
+      <span class="stars">Average rating: ${recipe.avg}</span>`)
     $('.product-description').append(`<p>${recipe.description}</p>`)
 
 }
 
 function appendIngredients(ingredients) {
   ingredients.forEach(ingredient => {
-    $('.ingredient-list').append(`<li>${ingredient.quantity}${ingredient.uom}${ingredient.name}</li>`)
+    $('.ingredient-list').append(`<li>${ingredient.quantity} ${ingredient.uom} ${ingredient.name}</li>`)
   })
 }
 
 function appendSteps(steps) {
   steps.forEach(step => {
-    $('.steps').append(`<li>step.body</li>`)
+    $('.steps').append(`<li>${step.body}</li>`)
   })
 }
 
-function appendReviews(reviews) {
-  if (Number(id) === review.recipe_id) {
+function appendReviews(review) {
+  console.log(recipeId);
+
+  if (Number(recipeId) === review.recipe_id) {
     $('.reviews-area').append(
         `<article id="${review.id}" class="review z-depth-3 grid-element-wrap-col s6 m5 l10">
            <h4 class='author'>${review.username}</h6>
            <p class='body'>${review.body}</p>
-           <button data-target="modal1" data-id="${review.id}" class="edit deep-purple lighten-2 btn">Edit comment</button>
+           <button data-target="modal1" data-id="${review.id}" class="edit-review deep-purple lighten-2 btn">Edit comment</button>
              <div id="modal${review.id}" class="modal">
                 <div class="modal-content">
                   <form>
@@ -64,10 +68,36 @@ function appendReviews(reviews) {
     }
 }
 
+//click event to activate modal
+$(document).on('click', '.edit-review', function() {
+   var id = $(this).data('id')
+    $('.modal').modal({
+      opacity: 0.7
+    })
+    $('#modal'+ id).modal('open')
+  })
 
+function deleteRecipe() {
+  $('.delete-recipe').click((event) => {
+    event.preventDefault()
+    $.ajax("https://g43recipes.herokuapp.com/recipe/"+recipeId, {
+      method: "DELETE"
+    })
+    .then(() => {window.location.href = "/index.html"})
+  })
+}
+
+function deleteReview() {
+
+}
+renderRecipe(recipe)
+appendSteps(steps)
+appendIngredients(ingredients)
+reviews.forEach(review => {appendReviews(review)})
 // $.get("https://g43recipes.herokuapp.com/recipe/"+recipeId)
 //   .then(function(recipe) {
 //     renderRecipe(recipe)
+//     deleteRecipe(recipe)
 //   })
 //   .then(function() {
 //     $.get("https://g43recipes.herokuapp.com/step/"+recipeId)

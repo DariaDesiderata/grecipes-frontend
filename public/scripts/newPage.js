@@ -8,7 +8,7 @@ $('.add-ingredient').click(() => {
   $('.recipe-ingredient').append(
     `<div class="input-field col l3">
     <label for="ingredient-qty" class="active">Quantity</label>
-    <input placeholder="1, 2, 3.." id="ingredient-qty-${ingredient}" type="text" value="">
+    <input placeholder="1, 2, 3.." id="ingredient-qty-${ingredient}" type="number" min='0' value="">
     </div>
     <div class="input-field col l3">
     <label for="ingredient-uom" class="active">UOM</label>
@@ -52,16 +52,26 @@ $('.send-recipe').click((event) => {
     title: $("#recipe-title").val(),
     username: $("#recipe-username").val(),
     description: $("#recipe-description").val(),
-    image: $("#recipe-url").val(),
-    ingredient: ingredientArr,
-    steps: stepArr
+    image: $("#recipe-url").val()
   }
-  console.log(newRecipe);
+
   $.ajax("https://g43recipes.herokuapp.com/recipe", {
     method: "POST",
     contentType: "application/json",
     data: JSON.stringify(newRecipe)
   })
-  .then(() => {$('.recipe-form').reset()}
-  )
+  .then(newRecipe => {
+    var newRecipeId = newRecipe.id
+    $.ajax("https://g43recipes.herokuapp.com/step"+newRecipeId, {
+      method: "POST",
+      contentType: "application/json",
+      data: JSON.stringify(stepArr)
+    })
+    $.ajax("https://g43recipes.herokuapp.com/ingredient"+newRecipeId, {
+      method: "POST",
+      contentType: "application/json",
+      data: JSON.stringify(ingredientArr)
+    })
+    $('.recipe-form').reset()
+  })
 })
