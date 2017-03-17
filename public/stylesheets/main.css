@@ -86,3 +86,9 @@ h2 {
 .modal-content {
   color: black;
 }
+#recipe-description {
+  height: 50px;
+}
+.edit-recipe-form {
+  color: white;
+}

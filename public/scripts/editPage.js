@@ -1,48 +1,48 @@
 const urlArr = window.location.href.split('=')
 const recipeId = urlArr[1]
-console.log(recipeId);
-let step = 0
-let ingredient = 0
+let stepCount = 0
+let ingredientCount = 0
 let ingredientArr = []
 let stepArr = []
 
 function parseRecipe(recipe) {
-
+console.log(recipe);
   $('.edit-recipe-header').html(recipe.title)
-  $('.recipe-title').val(recipe.title)
-  $('.recipe-username').val(recipe.user_id)
-  $('.recipe-desciption').val(recipe.description)
-  $('.recipe-url').attr("src", recipe.image)
+  $('#recipe-title').val(recipe.title)
+  $('#recipe-username').val(recipe.user_id)
+  $('#recipe-description').val(recipe.description)
+  $('#recipe-url').val(recipe.image)
 }
 
 function parseSteps(steps) {
 
   steps.forEach(step => {
-    ++step
+    ++stepCount
+    console.log(step.step_body);
     $('.recipe-step').append(
       `<div class="input-field">
-      <input id="recipe-step-${step}" type="text">
-      <label for="recipe-step" class="active">Step ${step}</label>${step.body}
+      <input id="recipe-step-${stepCount}" type="text" value="${step.step_body}">
+      <label for="recipe-step" class="active" ">Step ${stepCount}</label>
       </div>`
     )
   })
 }
 
 function parseIngredients(ingredients) {
-  arrOfObj.forEach(ingredient => {
-    ++ingredient
+  ingredients.forEach(ingredient => {
+    ++ingredientCount
     $('.recipe-ingredient').append(
       `<div class="input-field col l3">
       <label for="ingredient-qty" class="active">Quantity</label>
-      <input id="ingredient-qty-${ingredient}" type="text" value="ingredient.quantity">
+      <input id="ingredient-qty-${ingredient}" type="text" value="${ingredient.quantity}">
       </div>
       <div class="input-field col l3">
       <label for="ingredient-uom" class="active">UOM</label>
-      <input id="ingredient-uom-${ingredient}" type="text" value="ingredient.uom">
+      <input id="ingredient-uom-${ingredient}" type="text" value="${ingredient.uom}">
       </div>
       <div class="input-field col l6">
       <label for="recipe-ingredient" class="active">Ingredient</label>
-      <input id="recipe-ingredient-${ingredient}" type="text" value="ingredient.name">
+      <input id="recipe-ingredient-${ingredient}" type="text" value="${ingredient.name}">
       </div>`
     )
   })
