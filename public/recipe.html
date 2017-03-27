@@ -58,7 +58,7 @@
             </ul>
         </div>
       <div class="row">
-          <form class="review-form form col l6 m8 s12" id="scroll-to">
+          <form class="review-form form col l6 m8 s12">
             <div class="row">
               <div class="input-field col l12 m10 s12">
                 <input placeholder="Author name" id="username" type="text">
@@ -66,10 +66,13 @@
               </div>
               <div class="input-field col l12 m10 s12">
                 <textarea placeholder="Your review" id="body" type="text" rows="50"></textarea>
-                <span class="stars"><i class="material-icons">stars</i><i class="material-icons">stars</i><i class="material-icons">stars</i><i class="material-icons">stars</i></span>
+              </div>
+              <div class="input-field col l12 m10 s12">
+                <input placeholder="Star rating" id="rating" type="number" min="0" max="5">
+                <label class="active" for="star rating">Star rating</label>
               </div>
             </div>
-            <button class="btn waves-effect waves-light teal accent-4 col s6 add-new-review" type="submit" name="action">Add new review</button>
+            <button class="btn waves-effect waves-light teal accent-4 col s6 add-new-review" type="submit">Add new review</button>
           </form>
       </div>
       <div class="reviews-area">

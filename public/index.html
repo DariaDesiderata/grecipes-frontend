@@ -16,7 +16,12 @@
             <a href="#!" class="brand-logo custom-logo">TREATS</a>
             <ul class="right hide-on-med-and-down">
               <li><a href="./addNew.html">Add new recipe</a></li>
-              <li><a href="./ingredients.html">Ingredients</a></li>
+              <li><a class='dropdown-button' data-activates='dropdown1'>Sort recipes by</a>
+                <ul id='dropdown1' class='dropdown-content sortBy'>
+                  <li class="byStar">Average star rating</li>
+                  <li class="byAlpha">Alphabetically</li>
+                </ul>
+              </li>
             </ul>
           </div>
         </nav>

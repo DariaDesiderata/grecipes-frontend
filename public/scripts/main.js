@@ -1,8 +1,8 @@
 const $recipeCard = $('.recipe')
+var rating;
 
 function addRecipes(recipes) {
   recipes.forEach(recipe => {
-    var rating;
     recipe.avg === null ? rating = "No reviews yet" : rating = parseFloat(recipe.avg).toFixed(1)
 
         $recipeCard.append(
@@ -23,9 +23,15 @@ function addRecipes(recipes) {
         )
     })
 }
+function sortByStar(recipes) {
+  recipes.forEach(recipe => {
+    recipe.avg === null ? rating = 0 : rating = parseFloat(recipe.avg).toFixed(1)
+
+  recipes.sort()
+}
 
 $.get("https://g43recipes.herokuapp.com/recipe")
-.then(addRecipes)
+.then(() => {addRecipes})
 .catch(err => {
   console.log(err)
 })

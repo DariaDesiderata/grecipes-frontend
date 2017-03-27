@@ -67,6 +67,23 @@ function appendReview(review) {
     }
 }
 
+$('.add-new-review').click(function(event) {
+  event.preventDefault()
+  var newReview = {
+    body: $('#body').val(),
+    stars: $('#rating').val(),
+    username: $('#username').val()
+
+  $.ajax("https://g43recipes.herokuapp.com/review/"+recipeId, {
+    method: "POST",
+    contentType: "application/json",
+    data: JSON.stringify(newReview)
+  })
+  .then(() => {
+    window.location.reload()
+  })
+})
+
 //click event to activate edit review modal
 $(document).on('click', '.edit-review', function() {
    var id = $(this).data('id')

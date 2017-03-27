@@ -93,3 +93,10 @@ h2 {
 .edit-recipe-form {
   color: white;
 }
+.sortBy {
+  background: hsla(0, 0%, 37%, 0.9);
+}
+.byStar, .byAlpha {
+  padding: 20px;
+  color: #eeeeee;
+}
