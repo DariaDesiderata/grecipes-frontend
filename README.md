@@ -1,8 +1,8 @@
 # [Treats recipe site](https://grecipes-f85d1.firebaseapp.com/)
 ## Project description
-This was one of the collaborative full stack projects I worked on during my quarter 2 at Galvanize. We learned databse manipulation 
+This was one of the collaborative full stack projects I worked on during my quarter 2 at Galvanize. We learned database manipulation 
 with PostgreSQL and Knex, setting up servers with Express and transfering information from front to back with CRUD routes. 
-Together with my teammate we developed an ERD and then split up the project into front and back end tasks. My primary responsibility 
+Together with my [teammate](https://github.com/SteveODell) we developed an ERD and then split up the project into front and back end tasks. My primary responsibility 
 was to work on the front end, fetch and send data from/to the database and create visual representation of it. We deployed the 
 front end to Firebase, while hosting the DB on Heroku.
 
@@ -14,15 +14,15 @@ It is structured in the following way:
 ![Screenshot](public/stylesheets/recipe-main.png)
 
 2. Each recipe card on the main page is clickable and will take the user to a full description recipe page, where she can edit or delete the recipe
-or add and view comments and reviews left by others. This page will also allow the user to edit or delete comments.
+or add and view comments and reviews left by others. This page also allows the user to edit or delete comments.
 
 ![Screenshot](public/stylesheets/each_recipe.png)
 
-3. Edit recipe page is populated with the data from the current clicked recipe and provides the user with an opportunity to adjust the UOM,
+3. Edit recipe page shows a selected recipe and provides the user with an opportunity to adjust unit of measure,
 quantity, ingredients, execution steps, and the description of the recipe.
 
 ![Screenshot](public/stylesheets/edit_page.png)
 
-4. Add new recipe link in the top right corner allows the user to create and save their recipe.
+4. 'Add new' recipe link in the top right corner allows the user to create and save a recipe.
 
 ![Screenshot](public/stylesheets/add_new.png)
